@@ -18,8 +18,15 @@ module RpushWeb
 
     # Hooks:
     after_create :invalidate_used_token
+    before_validation :set_the_platform
 
     private
+
+    def set_the_platform
+      if self.platform.present?
+        self.platform = self.platform.eql?('ios') ? 1 : 2
+      end
+    end
 
     def invalidate_used_token
       RpushWeb::Device.where(token: token).where('id != ?', id).delete_all
