@@ -1,0 +1,33 @@
+<% if @collection.size.zero? %>
+  <div class="row">
+    <div class="ten columns">&nbsp;</div>
+    <div class="two columns" style="padding-top:15px"><a href="/rpush_web/mobile_application_settings/new" class="button button-primary">Add new</a></div>
+  </div>
+<% end %>
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>App name</th>
+      <th>Android Auth Key</th>
+      <th>Environment</th>
+      <th>Connections</th>
+      <th>IOS certificate</th>
+      <th>Created at</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @collection.each do |item| %>
+      <tr>
+        <td><%= item.app_name %></td>
+        <td><%= item.android_auth_key %></td>
+        <td><%= item.environment_level %></td>
+        <td><%= item.connections %></td>
+        <td><%= link_to "pem file", item.ios_certificate.try(:url) %></td>
+        <td><%=l item.created_at %></td>
+        <td><%= link_to 'Edit', edit_rpush_web_mobile_application_setting_path(item) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

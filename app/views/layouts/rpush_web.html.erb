@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rpush web UI</title>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://getskeleton.com/css/custom.css" />
+	<%= csrf_meta_tags %>
+</head>
+<body>	
+	<nav class="navbar">
+		<div class="container">
+			<ul class="navbar-list">
+				<li class="navbar-item">
+					<a class="navbar-link" href="/rpush_web/devices">List Device</a>
+				</li>
+				<li class="navbar-item">
+					<a class="navbar-link" href="/rpush_web/push_notifications">Notification</a>
+				</li>
+				<li class="navbar-item">
+					<a class="navbar-link" href="/rpush_web/mobile_application_settings">Setting</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<%= yield %>
+	</div>
+</body>
+</html>

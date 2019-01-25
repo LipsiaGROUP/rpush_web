@@ -1,0 +1,26 @@
+<%= form_for [:rpush_web, @mobile_application_setting], multipart: true do |f| %>
+	<%= render 'layouts/rpushweb_errors', object: @mobile_application_setting %>
+	<div class="row">
+		<%= f.label :app_name %>
+		<%= f.text_field :app_name %>	
+	</div>
+	<div class="row">
+		<%= f.label :android_auth_key %>
+		<%= f.text_field :android_auth_key %>
+	</div>
+	<div class="row">
+		<%= f.label :ios_certificate %>
+		<%= f.file_field :ios_certificate %>
+	</div>
+	<div class="row">
+		<%= f.label :environment_level %>
+		<%= f.text_field :environment_level %>
+	</div>
+	<div class="row">
+		<%= f.label :connections %>
+		<%= f.number_field :connections %>
+	</div>
+	<div class="row">
+		<%= f.submit %>
+	</div>
+<% end %>

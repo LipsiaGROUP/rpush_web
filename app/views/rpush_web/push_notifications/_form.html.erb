@@ -1,0 +1,17 @@
+<%= form_for [:rpush_web, @push_notification] do |f| %>
+	<div class="row">
+		<%= f.label :title %>
+		<%= f.text_field :title %>	
+	</div>
+	<div class="row">
+		<%= f.label :platform %>
+		<%= f.select(:platform, RpushWeb::PushNotification::Platform) %>
+	</div>
+	<div class="row">
+		<%= f.label :content %>
+		<%= f.text_area :content %>
+	</div>
+	<div class="row">
+		<%= f.submit %>
+	</div>
+<% end %>

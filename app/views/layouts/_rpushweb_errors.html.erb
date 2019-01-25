@@ -1,0 +1,7 @@
+<% if object.errors.any? %>
+  <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <%= content_tag :li, msg, :id => "error_#{msg}" if msg.is_a?(String) %>
+    <% end %>
+  </ul>
+<% end %>
