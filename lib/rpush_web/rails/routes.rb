@@ -61,8 +61,8 @@ module RpushWeb
           path: 'devices',
           only: [:index],
         ) do |scope|
-          routes.put    ':token', controller: mapping[:controllers], action: :register, on: :collection
-          routes.delete ':token', controller: mapping[:controllers], action: :deregister, on: :collection
+          routes.post 'register', controller: mapping[:controllers], action: :register, on: :collection
+          routes.delete 'deregister', controller: mapping[:controllers], action: :deregister, on: :collection
         end
       end
     end
