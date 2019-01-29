@@ -1,11 +1,6 @@
 module RpushWeb
 	class PushNotification < ActiveRecord::Base
-		# OS:
-    enum platform: {
-    	general: 0,
-      ios: 1,
-      android: 2
-    }
+		
 
     Platform = [['general'], ['ios'], ['android']]
 
@@ -16,6 +11,17 @@ module RpushWeb
 
 		def setup_push_notification
 			RpushWeb::SetupNotificationJob.perform_later(self.id) 
+		end
+
+		def platform_name
+			case platform 
+			when 0 
+				'general'
+			when 1
+				'ios'
+			else
+				'android'
+			end
 		end
 
 		def self.send_android(user_token, data = {})

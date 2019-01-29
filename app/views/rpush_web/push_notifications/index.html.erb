@@ -15,7 +15,7 @@
     <% @collection.each do |item| %>
       <tr>
         <td><%= item.title %></td>
-        <td><a class="button"><i class="fa fa-<%= item.platform.eql?('ios') ? 'apple' : 'android' %>"></i><%= item.platform %></a></td>
+        <td><a class="button"><i class="fa fa-<%= item.platform.eql?(1) ? 'apple' : 'android' %>"></i><%= item.platform_name %></a></td>
         <td><%=l item.created_at %></td>
       </tr>
     <% end %>
