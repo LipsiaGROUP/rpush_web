@@ -9,6 +9,9 @@ class RpushWeb::DevicesController < ApplicationController
   end
 
   def register
+    if params[:platform].present?
+      params[:platform] = params[:platform].eql?('android') ? 2 : 1
+    end
     device = RpushWeb::Device.find_or_create_by(token: params[:token], platform: params[:platform])
     response = device.persisted? ? 200 : 201
 

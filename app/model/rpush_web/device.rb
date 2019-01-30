@@ -1,10 +1,5 @@
 module RpushWeb
   class Device < ActiveRecord::Base
-    # OS:
-    enum platform: {
-      ios: 1,
-      android: 2
-    }
 
     # Associations:
     belongs_to :owner, polymorphic: true
