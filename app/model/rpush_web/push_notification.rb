@@ -24,14 +24,12 @@ module RpushWeb
 			end
 		end
 
-		def self.send_android(user_token, data = {})
+		def self.send_android(user_token, data = {}, data_content = {})
 			n = Rpush::Gcm::Notification.new
 			n.app = Rpush::Gcm::App.last
 			if n.app
 				n.registration_ids = [user_token]
-				# n.data = {
-				# 	treatment_name: treatment[:des_treatment]
-				# }
+				n.data = data_content
 				n.priority = 'high'        # Optional, can be either 'normal' or 'high'
 				n.content_available = true # Optional
 				# Optional notification payload. See the reference below for more keys you can use!
@@ -40,16 +38,14 @@ module RpushWeb
 			end
 		end
 
-		def self.send_ios(user_token, data = {})
+		def self.send_ios(user_token, data = {}, data_content = {})
 			n = Rpush::Apns::Notification.new
 			n.app = Rpush::Apns::App.last
 			if n.app
 				n.device_token = user_token
 				# n.alert = data["content"]
 				n.alert = { title: data["title"], body: data["content"] }
-				# n.data = {
-				# 	treatment_name: treatment[:des_treatment]
-				# }
+				n.data = data_content
 				n.save!
 			end
 		end
