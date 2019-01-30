@@ -2,7 +2,7 @@ module RpushWeb
 	class PushNotification < ActiveRecord::Base
 		
 
-    Platform_list = [['general'], ['ios'], ['android']]
+    Platform_list = [['general', 0], ['ios', 1], ['android', 2]]
 
 		validates :content, length: { maximum: 230 }
 		validates :title, :content, presence: true

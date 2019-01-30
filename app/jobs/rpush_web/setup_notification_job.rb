@@ -4,9 +4,9 @@ class RpushWeb::SetupNotificationJob < ActiveJob::Base
   def perform(id)
     obj = RpushWeb::PushNotification.find(id)
     case obj.platform
-    when 'ios'
+    when 1
     	devices = RpushWeb::Device.where(platform: 1)
-    when 'android'
+    when 2
     	devices = RpushWeb::Device.where(platform: 2)
     else
     	devices = RpushWeb::Device.all
