@@ -1,4 +1,4 @@
-require 'rails/generators/active_record'
+require 'rails/generators'
 
 class RpushWeb::InstallGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
