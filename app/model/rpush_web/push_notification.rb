@@ -30,8 +30,9 @@ module RpushWeb
 			if n.app
 				n.registration_ids = [user_token]
 				n.data = data_content
+				n.data['content-available'] = '1'
 				n.priority = 'high'        # Optional, can be either 'normal' or 'high'
-				n.content_available = true # Optional
+				# n.content_available = true # Optional
 				# Optional notification payload. See the reference below for more keys you can use!
 				n.notification = {body: data["title"], title: data["content"]}
 				n.save!
