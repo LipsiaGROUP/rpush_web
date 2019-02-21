@@ -7,7 +7,7 @@ module RpushWeb
 		validates :content, length: { maximum: 230 }
 		validates :title, :content, presence: true
 
-		after_create :setup_push_notification
+		after_commit :setup_push_notification
 
 		def setup_push_notification
 			RpushWeb::SetupNotificationJob.perform_later(self.id) 
