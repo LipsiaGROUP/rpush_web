@@ -2,7 +2,7 @@ require_dependency 'rpush_web/application_controller'
 
 class RpushWeb::PushNotificationsController < ApplicationController
   include Rails.application.routes.url_helpers
-	layout 'rpush_web'
+  layout 'rpush_web'
 
   def index
     @collection = RpushWeb::PushNotification.all
